@@ -1,0 +1,29 @@
+<h2>Juros Compostos</h2>
+
+<fieldset>
+  <label for="valorPresente">Valor Presente</label><br />
+  <input id="valorPresente" type="number" step="0.01" [(ngModel)]="vp" />
+</fieldset>
+<fieldset>
+  <label for="juros">Juros em (em %)</label><br />
+  <input id="juros" type="number" step="0.01" [(ngModel)]="j" />
+</fieldset>
+<fieldset>
+  <label for="periodo">Período (em meses)</label><br />
+  <input id="periodo" type="number" step="1" [(ngModel)]="m" />
+</fieldset>
+
+<h3>Tabela juros compostos</h3>
+<table border="1">
+  <tr>
+    <th>Período</th>
+    <th>(i + j)ˆt</th>
+    <th>Retorno</th>
+  </tr>
+
+  <tr *ngFor="let item of getJuros()">
+    <td>{{ item.periodo }}</td>
+    <td>{{ item.calculo }}</td>
+    <td>{{ item.retorno }}</td>
+  </tr>
+</table>
